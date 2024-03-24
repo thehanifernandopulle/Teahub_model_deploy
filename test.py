@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 CLIENT = InferenceHTTPClient(
     api_url="https://detect.roboflow.com",
-    api_key="0XOQoCppbd01QYfjMZ5X"
+    api_key="gVEkgrUY1EUbfWvTp6pC"
 )
 
 @app.route('/')
@@ -25,7 +25,7 @@ def predict():
     base64_data = re.sub('^data:image/.+;base64,', '', base64_img)
 
     # Pass the image bytes to the inference SDK
-    result = CLIENT.infer(base64_data, model_id="tea-leaf-diseases-6el9p/1")
+    result = CLIENT.infer(base64_data, model_id="tea-leaf-diiseases/1")
 
     if 'predictions' in result and len(result['predictions']) > 0:
         first_prediction = result['predictions'][0]
